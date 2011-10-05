@@ -19,6 +19,7 @@ $.widget("ui.selectmenu", {
 		transferClasses: true,
 		typeAhead: "sequential",
 		style: 'dropdown',
+        multilevel: false,
 		positionOptions: {
 			my: "left top",
 			at: "left bottom",
@@ -286,6 +287,10 @@ $.widget("ui.selectmenu", {
 		// empty list so we can refresh the selectmenu via selectmenu()
 		this.list.html("");
 
+        if (o.multilevel) {
+            this.list.addClass(self.widgetBaseClass + '-multilevel');
+        }
+
 		// write li's
 		if (selectOptionData.length) {
 			for (var i = 0; i < selectOptionData.length; i++) {
@@ -348,7 +353,26 @@ $.widget("ui.selectmenu", {
 					if (this.list.find( 'li.' + optGroupName ).length ) {
 						this.list.find( 'li.' + optGroupName + ':last ul' ).append( thisLi );
 					} else {
-						$(' <li role="presentation" class="' + self.widgetBaseClass + '-group ' + optGroupName + (selectOptionData[i].parentOptGroup.attr("disabled") ? ' ' + this.namespace + '-state-disabled" aria-disabled="true"' : '"' ) + '><span class="' + self.widgetBaseClass + '-group-label">' + selectOptionData[i].parentOptGroup.attr('label') + '</span><ul></ul></li> ')
+						var optgroupList = $(' <li role="presentation" class="' + self.widgetBaseClass + '-group ' + optGroupName + (selectOptionData[i].parentOptGroup.attr("disabled") ? ' ' + this.namespace + '-state-disabled" aria-disabled="true"' : '"' ) + '><span class="' + self.widgetBaseClass + '-group-label">' + selectOptionData[i].parentOptGroup.attr('label') + '</span><ul></ul></li> ');
+						if (o.multilevel) {
+							optgroupList
+								.bind('focusin.selectmenu mouseenter.selectmenu', function(){
+									$(this).addClass('smHover ui-state-hover');
+									return false;
+								})
+								.bind('focusout.selectmenu mouseleave.selectmenu', function(){
+									$(this).removeClass('smHover ui-state-hover');
+									return false;
+								})
+								.find( 'ul' )
+								.addClass('ui-widget-content ui-corner-all')
+								.css({
+									'left': o.width,
+									'width': o.width
+								})
+								.before('<span class="' + self.widgetBaseClass + '-icon ui-icon ui-icon-triangle-1-e"></span>');
+						}
+						optgroupList
 							.appendTo( this.list )
 							.find( 'ul' )
 							.append( thisLi );
