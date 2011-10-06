@@ -436,11 +436,13 @@ $.widget("ui.selectmenu", {
 		this.list.css( 'height', 'auto' );
 		var listH = this.listWrap.height();
 		// calculate default max height
-		if ( o.maxHeight && o.maxHeight < listH ) {
-			this.list.height( o.maxHeight );
-		} else {
-			var winH = $( window ).height() / 3;
-			if ( winH < listH ) this.list.height( winH );
+		if ( ! o.multilevel ) {
+			if ( o.maxHeight && o.maxHeight < listH ) {
+				this.list.height( o.maxHeight );
+			} else {
+				var winH = $( window ).height() / 3;
+				if ( winH < listH ) this.list.height( winH );
+			}
 		}
 		
 		// save reference to actionable li's (not group label li's)
