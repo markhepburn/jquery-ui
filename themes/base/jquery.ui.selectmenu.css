@@ -26,8 +26,8 @@
 .ui-selectmenu-menu .ui-selectmenu-group ul { margin: 0; padding: 0; }
 /* for multilevel presentation */
 .ui-selectmenu-menu .ui-selectmenu-multilevel .ui-selectmenu-group { position: relative; }
-.ui-selectmenu-menu .ui-selectmenu-multilevel .ui-selectmenu-group > ul { position: absolute; top: -999em; }
-.ui-selectmenu-menu .ui-selectmenu-multilevel .ui-selectmenu-group.smHover > ul { top: 0; }
+.ui-selectmenu-menu .ui-selectmenu-multilevel .ui-selectmenu-group ul { position: absolute; top: -999em; }
+.ui-selectmenu-menu .ui-selectmenu-multilevel .ui-selectmenu-group.smHover ul { top: 0; }
 .ui-selectmenu-menu .ui-selectmenu-multilevel li .ui-icon, .ui-selectmenu-status .ui-icon { left: auto; right: 0; }
 /* IE6 workaround (dotted transparent borders) */
 * html .ui-selectmenu-menu li { border-color: pink; filter:chroma(color=pink); width:100%; }
