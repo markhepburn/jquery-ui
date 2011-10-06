@@ -19,7 +19,7 @@ $.widget("ui.selectmenu", {
 		transferClasses: true,
 		typeAhead: "sequential",
 		style: 'dropdown',
-        multilevel: false,
+		multilevel: false,
 		positionOptions: {
 			my: "left top",
 			at: "left bottom",
@@ -287,9 +287,9 @@ $.widget("ui.selectmenu", {
 		// empty list so we can refresh the selectmenu via selectmenu()
 		this.list.html("");
 
-        if (o.multilevel) {
-            this.list.addClass(self.widgetBaseClass + '-multilevel');
-        }
+		if (o.multilevel) {
+			this.list.addClass(self.widgetBaseClass + '-multilevel');
+		}
 
 		// write li's
 		if (selectOptionData.length) {
