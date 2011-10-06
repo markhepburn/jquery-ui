@@ -25,6 +25,7 @@
 .ui-selectmenu-menu .ui-selectmenu-group .ui-selectmenu-group-label { line-height: 1.4em; display:block; padding: .6em .5em 0; font-weight: bold; }
 .ui-selectmenu-menu .ui-selectmenu-group ul { margin: 0; padding: 0; }
 /* for multilevel presentation */
+.ui-selectmenu-menu .ui-selectmenu-multilevel { overflow: visible; }
 .ui-selectmenu-menu .ui-selectmenu-multilevel .ui-selectmenu-group { position: relative; }
 .ui-selectmenu-menu .ui-selectmenu-multilevel .ui-selectmenu-group ul { position: absolute; top: -999em; }
 .ui-selectmenu-menu .ui-selectmenu-multilevel .ui-selectmenu-group.smHover ul { top: 0; }
